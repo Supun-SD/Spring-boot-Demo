@@ -20,6 +20,11 @@ public class UserController {
         return userService.getAllUsers();
     }
 
+    @GetMapping("/getUser/{userId}")
+    public UserDTO getUserById(@PathVariable Integer userId){
+        return userService.getUserById(userId);
+    }
+
     @PostMapping("/addUser")
     public UserDTO addUser(@RequestBody UserDTO userDTO){
         return userService.addUser(userDTO);
@@ -30,8 +35,8 @@ public class UserController {
         return userService.updateUser(userDTO);
     }
 
-    @DeleteMapping("/deleteUser")
-    public String deleteUser(@RequestBody UserDTO userDTO){
-        return userService.deleteUser(userDTO);
+    @DeleteMapping("/deleteUser/{userId}")
+    public String deleteUser(@PathVariable Integer userId){
+        return userService.deleteUser(userId);
     }
 }
